@@ -6,7 +6,7 @@ import com.Deligo.Deligo.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.parser.Entity;
+import java.util.Optional;
 
 @Service
 public class UserServiceImplementation implements UserService{
@@ -26,5 +26,11 @@ public class UserServiceImplementation implements UserService{
         return "Login Success";
     }
     return "Login Failed";
+    }
+
+    @Override
+    public Optional<Users> getUser(long id) {
+        Optional<Users> u = repo.findById(id);
+        return u;
     }
 }
